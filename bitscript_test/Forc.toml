@@ -1,7 +1,8 @@
 [project]
 authors = ["Nicholas Furfaro"]
-entry = "lib.sw"
+entry = "main.sw"
 license = "Apache-2.0"
-name = "bitshifter"
+name = "bitscript_test"
 
 [dependencies]
+bitshifter = { path = "../bitshifter"}

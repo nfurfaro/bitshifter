@@ -1,6 +1,10 @@
 library bitops;
 
-const MAX_BINARY_U64 = 0b00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_11111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111;
+use core::num::*;
+
+// const MAX_BINARY_U64 = 0b00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000_11111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111;
+
+const MAX_BINARY_U64: u64 = 0b11111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111;
 
 /// Set the nth bit of a bitmap to `0`.
 pub fn turn_off_bit(bitmap: u64, n: u64) -> u64 {
@@ -29,11 +33,11 @@ pub fn query_bit(bitmap: u64, n: u64) -> u64 {
 /// Set the nth bit of a bitmap to `value`
 pub fn set_bit(bitmap: u64, n: u64, value: u64) -> u64 {
     let clearing_mask = turn_off_bit(MAX_BINARY_U64, n);
-    bitmap & clearing_mask;
+    let new_bitmap = bitmap & clearing_mask;
     let setting_mask = if value == 0 {
-        clearing_mask;
+        clearing_mask
     } else {
-        toggle_bit(0u64, n);
+        toggle_bit(0u64, n)
     };
     bitmap | setting_mask
 }
@@ -45,5 +49,5 @@ pub fn multi_bit_mask(n: u64) -> u64 {
 
 /// Get a bitmask with a single `1` at the nth position.
 pub fn single_bit_mask(n: u64) -> u64 {
-    1 << (position - 1)
+    1 << (n - 1)
 }
