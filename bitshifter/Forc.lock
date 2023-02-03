@@ -1,14 +1,13 @@
 [[package]]
 name = 'bitshifter'
-source = 'root'
+source = 'member'
 dependencies = ['std']
 
 [[package]]
 name = 'core'
-source = 'path+from-root-A06C4963AA38181F'
-dependencies = []
+source = 'path+from-root-1F8B74501B72099C'
 
 [[package]]
 name = 'std'
-source = 'git+https://github.com/fuellabs/sway?tag=v0.15.2#eab07e48bc6dbd0c80aedc1e363bb63a6d5f0e28'
+source = 'git+https://github.com/fuellabs/sway?rev#b6cd10ba9da174cec0b0947354f315f0a6ccd015'
 dependencies = ['core']
