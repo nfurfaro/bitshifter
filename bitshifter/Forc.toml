@@ -1,7 +1,0 @@
-[project]
-authors = ["Nicholas Furfaro"]
-entry = "lib.sw"
-license = "Apache-2.0"
-name = "bitshifter"
-
-[dependencies]

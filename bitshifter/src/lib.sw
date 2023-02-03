@@ -1,3 +1,0 @@
-library bitshifter;
-
-dep bitops;
